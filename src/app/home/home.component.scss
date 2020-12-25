@@ -1,0 +1,47 @@
+.filter-card {
+  width: 75%;
+}
+
+.active {
+  background-color: #28a745 !important;
+}
+
+.filter-btn-container {
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  flex: 0 1 40%;
+  margin: 10px;
+}
+
+.filter-btn-header {
+  margin-bottom: 0px !important;
+}
+
+.mission_name_text {
+  font-size: 20px;
+  color: #63659f;
+}
+
+.mission_key_text {
+  color: #181818;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.mission_value_text {
+  color: #63659f;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 600px) {
+  .filter-card {
+    width: 100%;
+  }
+}

@@ -1,0 +1,76 @@
+<div class="container-fluid">
+    <h1>SpaceX Launch Programs</h1><br />
+    <div class='row'>
+        <div class='col-lg-3 col-md-6 col-sm-12'>
+            <div class="card filter-card">
+                <div class="card-body">
+                    <div class="filter-btn-header card-title h5">
+                        Filters 
+                    </div>
+                    <p class="text-center">Launch year</p><hr>
+                    <div class="row">
+                        <div class="filter-btn-container">
+                            <button type="button" value="2006" class="filter-btn btn btn-outline-success" (click)="setYear($event.target.value)" [ngClass]="{'active': activeYear == '2006'}">2006</button>
+                            <button type="button" value="2007" class="filter-btn btn btn-outline-success" (click)="setYear($event.target.value)" [ngClass]="{'active': activeYear == '2007'}">2007</button>
+                            <button type="button" value="2008" class="filter-btn btn btn-outline-success" (click)="setYear($event.target.value)" [ngClass]="{'active': activeYear == '2008'}">2008</button>
+                            <button type="button" value="2009" class="filter-btn btn btn-outline-success" (click)="setYear($event.target.value)" [ngClass]="{'active': activeYear == '2009'}">2009</button>
+                            <button type="button" value="2010" class="filter-btn btn btn-outline-success" (click)="setYear($event.target.value)" [ngClass]="{'active': activeYear == '2010'}">2010</button>
+                            <button type="button" value="2011" class="filter-btn btn btn-outline-success" (click)="setYear($event.target.value)" [ngClass]="{'active': activeYear == '2011'}">2011</button>
+                            <button type="button" value="2012" class="filter-btn btn btn-outline-success" (click)="setYear($event.target.value)" [ngClass]="{'active': activeYear == '2012'}">2012</button>
+                            <button type="button" value="2013" class="filter-btn btn btn-outline-success" (click)="setYear($event.target.value)" [ngClass]="{'active': activeYear == '2013'}">2013</button>
+                            <button type="button" value="2014" class="filter-btn btn btn-outline-success" (click)="setYear($event.target.value)" [ngClass]="{'active': activeYear == '2014'}">2014</button>
+                            <button type="button" value="2015" class="filter-btn btn btn-outline-success" (click)="setYear($event.target.value)" [ngClass]="{'active': activeYear == '2015'}">2015</button>
+                            <button type="button" value="2016" class="filter-btn btn btn-outline-success" (click)="setYear($event.target.value)" [ngClass]="{'active': activeYear == '2016'}">2016</button>
+                            <button type="button" value="2017" class="filter-btn btn btn-outline-success" (click)="setYear($event.target.value)" [ngClass]="{'active': activeYear == '2017'}">2017</button>
+                            <button type="button" value="2018" class="filter-btn btn btn-outline-success" (click)="setYear($event.target.value)" [ngClass]="{'active': activeYear == '2018'}">2018</button>
+                            <button type="button" value="2019" class="filter-btn btn btn-outline-success" (click)="setYear($event.target.value)" [ngClass]="{'active': activeYear == '2019'}">2019</button>
+                            <button type="button" value="2020" class="filter-btn btn btn-outline-success" (click)="setYear($event.target.value)" [ngClass]="{'active': activeYear == '2020'}">2020</button>
+                            <button type="button" value="2021" class="filter-btn btn btn-outline-success" (click)="setYear($event.target.value)" [ngClass]="{'active': activeYear == '2021'}">2021</button>
+                        </div>
+                    </div><br/>
+                    <p class="text-center">Successful Launch</p><hr>
+                    <div class="row">
+                        <div class="filter-btn-container">
+                            <button type="button" value="true" class="filter-btn btn btn-outline-success" (click)="successLaunch($event.target.value)" [ngClass]="{'active': activeLaunch == 'true'}">True</button>
+                            <button type="button" value="false" class="filter-btn btn btn-outline-success" (click)="successLaunch($event.target.value)" [ngClass]="{'active': activeLaunch == 'false'}">False</button>
+                        </div>
+                    </div><br>
+                    <p class="text-center">Successful Land</p><hr>
+                    <div class="row">
+                        <div class="filter-btn-container">
+                            <button type="button" value="true" class="filter-btn btn btn-outline-success" (click)="successLand($event.target.value)"  [ngClass]="{'active': activeLand == 'true'}">True</button>
+                            <button type="button" value="false" class="filter-btn btn btn-outline-success" (click)="successLand($event.target.value)"  [ngClass]="{'active': activeLand == 'false'}">False</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='col-lg-9 col-md-6 col-sm-12'>
+            <div class="row">
+                <div *ngFor="let item of spaceXData;let i=index">
+                    <div class="card py-3 mx-4 mt-3">
+                        <div class="col-12">
+                            <img src="{{item.links.mission_patch_small}}" style="background-color: #f2f2f2;">
+                            <div class="mission_name_text">{{item.mission_name}} #{{i}}
+                            </div>
+                            <div class="mission_key_text">Mission Ids: 
+                                <ul>
+                                    <li class="mission_value_text">{{item.mission_id[0]}}</li>
+                                </ul>
+                            </div>
+                            <div class="mission_key_text">Launch Year: 
+                                <span class="mission_value_text">{{item.launch_year}}</span>
+                            </div>
+                            <div class="mission_key_text">Successful Launch: 
+                                <span class="mission_value_text">{{item.launch_success}}</span>
+                            </div>
+                            <div class="mission_key_text">Successful Landing: 
+                                <span class="mission_value_text">{{item.rocket?.first_stage?.cores[0].land_success || false}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
