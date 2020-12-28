@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   activeYear: any = "";
   activeLaunch: any = "";
   activeLand: any = "";
+  developdBy = "Hemangini Gohel";
 
   ngOnInit(): void {
     this.getSpecxData();
